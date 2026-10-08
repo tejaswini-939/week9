@@ -7,7 +7,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "Build Docker Image"
-                bat "docker build -t kubedemoapp:v1 ."
+                bat "docker build -t week9:v1 ."
             }
         }
 
@@ -20,7 +20,7 @@ pipeline {
         stage('Push Docker Image to Docker Hub') {
             steps {
                 echo "Push Docker Image to Docker Hub"
-                bat "docker tag kubedemoapp:v1 tejaswini022/kubeimage1:latest"
+                bat "docker tag week9:v1 tejaswini022/kubeimage1:latest"
                 bat "docker push tejaswini022/kubeimage1:latest"
             }
         }
