@@ -1,20 +1,22 @@
 from flask import Flask, render_template, request
 app = Flask(__name__)
-@app.route('/')
+@app.route("/")
 def home():
-    return render_template('register.html')
-@app.route('/register', methods=['POST'])
+    return render_template("myForm.html")
+@app.route("/register", methods=["POST"])
 def register():
-    name = request.form['name']
-    email = request.form['email']
-    phone = request.form['phone']
-    age = request.form['age']
+    name = request.form.get("name")
+    email = request.form.get("email")
+    phone = request.form.get("phone")
+    gender = request.form.get("gender")
+    course = request.form.get("course")
     return render_template(
-        'success.html',
+        "greeting.html",
         name=name,
         email=email,
         phone=phone,
-        age=age
+        gender=gender,
+        course=course
     )
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)

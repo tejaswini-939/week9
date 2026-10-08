@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: week9-deployment
+
+spec:
+  replicas: 4
+
+  selector:
+    matchLabels:
+      app: week9
+
+  template:
+    metadata:
+      labels:
+        app: week9
+
+    spec:
+      containers:
+        - name: week9
+          image: tejaswini022/kubeimage1:latest
+          ports:
+            - containerPort: 5000
